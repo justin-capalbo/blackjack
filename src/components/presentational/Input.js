@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Input = (props) => {
-    let { 
+    const { 
         label, 
         text, 
         type, 
@@ -28,7 +28,7 @@ Input.propTypes = {
     label: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    id: PropTypes.sstring.isRequired,
+    id: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     handleChange: PropTypes.func.isRequired,
 };
