@@ -35,10 +35,9 @@ export class BlackJackContainer extends Component {
                 <Banner bannerText='Welcome to Blackjack' /> 
                 <Button onClick={this.handleDraw}>Draw a card</Button>
                 {
-                    playerHand &&
-                    playerHand.map((data, i) =>{
-                        <CardBase card={data} key={i}></CardBase>
-                    })
+                    playerHand && 
+                    playerHand.map((data, i) => 
+                        <CardBase card={data} key={i}></CardBase>)
                 }
             </div>
         );
