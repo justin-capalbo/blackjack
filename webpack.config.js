@@ -5,14 +5,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader"
-                }
-            },
-            {
-                test: /.jsx?$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader"
@@ -27,7 +20,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: [".jsx", ".js"]
+        extensions: ['.js', '.jsx']
     },
     plugins: [
         new HtmlWebPackPlugin({
