@@ -3,7 +3,7 @@ import { Component } from 'react';
 import { Banner } from '../components/Banner';
 import { Button } from '../components/Button';
 import { getDeck } from '../logic/deckBuilder';
-import { CardBase } from '../components/CardBase';
+import { CardBase } from '../components/card/CardBase';
 
 export class BlackJackContainer extends Component {
     constructor(){

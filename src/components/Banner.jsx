@@ -1,5 +1,4 @@
-import React from 'react';
-import { PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { BannerText } from './BannerText';
 import PropTypes from 'prop-types';
 
