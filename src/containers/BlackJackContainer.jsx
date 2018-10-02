@@ -3,7 +3,7 @@ import { Component } from 'react';
 import { WelcomeBanner } from '../components/visual/Banner';
 import { Button } from '../components/visual/Button';
 import { getDeck, shuffle } from '../logic/gameLogic';
-import { CardBase } from '../components/card/CardBase';
+import { CardHolder } from '../components/card/CardHolder';
 
 export class BlackJackContainer extends Component {
     constructor(){
@@ -34,15 +34,13 @@ export class BlackJackContainer extends Component {
     }
 
     render() {
-        const playerHand = this.state.playerHand;
+        const playerHand = this.state.playerHand || [];
         return (
             <div className='blackjack-game'>
                 <WelcomeBanner bannerText='Welcome to Blackjack' /> 
                 <Button onClick={this.handleShuffle}>Shuffle the deck</Button>
                 <Button onClick={this.handleDraw}>Draw a card</Button>
-                { playerHand && 
-                  playerHand.map((data, i) => 
-                  <CardBase card={data} key={i} /> )}
+                <CardHolder cards={playerHand} />
             </div>
         );
     }
