@@ -6,7 +6,8 @@ import styled from 'styled-components';
 const Holder = styled.div`
     border: 1px dashed black;
     min-height: 325px;
-    margin-top: 2px;
+    max-width: 400px;
+    margin: 25px auto;
 `;
 
 const Score = styled.h4`

@@ -3,13 +3,13 @@ import { PropTypes } from 'prop-types';
 import { CardTitle } from './CardTitle';
 import styled from 'styled-components';
 
-const CardBounds = styled.li`
+const CardBounds = styled.div`
     position: absolute;
     width: 190px;
     border: 2px solid black;
     background-color: white;
-    margin-top: ${props => props.index * 24}px;
-    margin-left: ${props => props.index * 6}px;
+    margin-top: ${props => 4 + props.index * 24}px;
+    margin-left: ${props => 4 + props.index * 6}px;
 `;
 
 export class CardBase extends PureComponent {

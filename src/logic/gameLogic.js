@@ -1,28 +1,26 @@
 import { cardFaces, cardSuits } from '../constants/BlackjackCards';
 
-export function getDeck (n = 1){
-    let deck = [];
-    for (let deckNum = 0; deckNum < n; deckNum++){
-        for (let i = 0; i < cardSuits.length; i++){
-            for (let j = 0; j < cardFaces.length; j++){
-                deck.push({
-                    suit: cardSuits[i],
-                    face: cardFaces[j].face,
-                    value: cardFaces[j].value,
-                });
-            }
-        }
-    }    
-    return deck;
-}
-
-export function shuffle(deck){
+export const shuffle = function (deck) {
     let shuffled = [];
     while (deck.length > 0){
         let index = Math.random() * deck.length;
         shuffled.push(deck.splice(index, 1)[0]);
     }
     return shuffled;
+}
+
+export function getDeck (shuffleDeck = true) {
+    let deck = [];
+    for (let i = 0; i < cardSuits.length; i++){
+        for (let j = 0; j < cardFaces.length; j++){
+            deck.push({
+                suit: cardSuits[i],
+                face: cardFaces[j].face,
+                value: cardFaces[j].value,
+            });
+        }
+    }
+    return shuffleDeck ? shuffle(deck) : deck;
 }
 
 export function scoreHand(hand){
