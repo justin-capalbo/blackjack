@@ -16,6 +16,15 @@ export function getDeck (n = 1){
     return deck;
 }
 
+export function shuffle(deck){
+    let shuffled = [];
+    while (deck.length > 0){
+        let index = Math.random() * deck.length;
+        shuffled.push(deck.splice(index, 1)[0]);
+    }
+    return shuffled;
+}
+
 export function scoreHand(hand){
     let sum = 0, aces = 0;
     for (let i = 0; i < hand.length; i++){
