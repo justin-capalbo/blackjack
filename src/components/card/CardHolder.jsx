@@ -1,18 +1,36 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { PropTypes } from 'prop-types';
 import { CardBase } from './CardBase';
+import styled from 'styled-components';
 
-export class CardHolder extends Component {
+const Holder = styled.div`
+    border: 1px dashed black;
+    min-height: 325px;
+    max-width: 400px;
+    margin: 25px auto;
+`;
+
+const Score = styled.h4`
+    float: right;
+    margin-top: 130px;
+    margin-right: 10px;
+`;
+
+export class CardHolder extends PureComponent {
     render() {
         let cards = this.props.cards; 
         return (
-            <div>
+            <Holder>
                 {
                     cards && 
                     cards.map((data, i) => 
-                    <CardBase card={data} key={i} />)
+                    <CardBase 
+                        key={i} 
+                        card={data} 
+                        index={i}/>)
                 }
-            </div>
+                <Score>Score: {this.props.score}</Score>
+            </Holder>
         );
     }
 };
