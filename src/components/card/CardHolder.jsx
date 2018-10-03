@@ -7,7 +7,7 @@ const Holder = styled.div`
     border: 1px dashed black;
     min-height: 325px;
     max-width: 400px;
-    margin: 25px auto;
+    margin: 20px auto;
 `;
 
 const Score = styled.h4`
