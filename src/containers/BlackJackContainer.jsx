@@ -104,8 +104,8 @@ export class BlackJackContainer extends Component {
                 <Button onClick={this.handleShuffle}>Shuffle the deck</Button>
                 <Button onClick={this.handleReset}>Reset game</Button>
                 <GameStatusDisplay gameStatus={this.state.gameStatus}></GameStatusDisplay>
-                <Button onClick={isPlaying && this.handleHit}>Hit</Button>
-                <Button onClick={isPlaying && this.handleStay}>Stand</Button>
+                <Button onClick={isPlaying ? this.handleHit : undefined}>Hit</Button>
+                <Button onClick={isPlaying ? this.handleStay : undefined}>Stand</Button>
                 <CardHolder cards={playerHand} score={this.calculateScore(playerHand)}/>
                 <CardHolder cards={dealerHand} score={this.calculateScore(dealerHand)}/>
             </BlackJackGame>
