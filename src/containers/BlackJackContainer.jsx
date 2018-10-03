@@ -5,7 +5,7 @@ import { GAME_STATUS } from '../constants/GameConstants';
 import { WelcomeBanner } from '../components/visual/WelcomeBanner';
 import { Button } from '../components/visual/Button';
 import { CardHolder } from '../components/card/CardHolder';
-import { scoreHand, buildDeck } from '../logic/gameLogic';
+import { scoreHand, buildDeck } from '../logic/gameUtils';
 import { GameStatusDisplay } from '../components/visual/GameStatusDisplay';
 
 const BlackJackGame = styled.div`
@@ -18,7 +18,7 @@ export class BlackJackContainer extends Component {
     constructor(){
         super();
         this.handleHit = this.handleHit.bind(this);
-        this.handleStay = this.handleStay.bind(this);
+        this.handleStand = this.handleStand.bind(this);
         this.handleShuffle = this.handleShuffle.bind(this);
         this.handleReset = this.handleReset.bind(this);
         this.state = {
@@ -43,14 +43,31 @@ export class BlackJackContainer extends Component {
         let deck = this.state.deck;
 
         hand.push(deck.drawCard());
-        if (this.calculateScore(hand) > 21){
-            this.setState( { gameStatus: GAME_STATUS.LOSE });
-        }
 
-        this.setState({ playerHand: hand, deck: deck});
+        const score = this.calculateScore(hand);
+        this.setState({ 
+            deck: deck,
+            playerHand: hand, 
+            gameStatus: score > 21 ? GAME_STATUS.LOSE : this.state.gameStatus
+        });
     }
 
-    handleStay(){
+    scoreGame(dealerScore, playerScore){
+        if (dealerScore > 21){
+            return GAME_STATUS.WIN;
+        } 
+        
+        if (dealerScore > 17){
+            if (dealerScore < playerScore){
+                return GAME_STATUS.WIN;
+            }
+
+            return dealerScore === playerScore ? GAME_STATUS.PUSH : GAME_STATUS.LOSE 
+        } 
+        return GAME_STATUS.PLAYING;
+    }
+
+    handleStand(){
         let hand = this.state.dealerHand;
         let deck = this.state.deck;
         let gameStatus;
@@ -62,18 +79,10 @@ export class BlackJackContainer extends Component {
             const score = this.calculateScore(hand);
             const playerScore = this.calculateScore(this.state.playerHand);
 
-            if (score > 21){
-                gameStatus = GAME_STATUS.WIN;
+            gameStatus = this.scoreGame(score, playerScore);
+            if (gameStatus !== GAME_STATUS.PLAYING){
                 break;
-            } else if (score > 17){
-                if (score < playerScore){
-                    gameStatus = GAME_STATUS.WIN;
-                    break;
-                }
-
-                gameStatus = score === playerScore ? GAME_STATUS.PUSH : GAME_STATUS.LOSE 
-                break;
-            } 
+            }
         }
 
         this.setState({ 
@@ -81,6 +90,7 @@ export class BlackJackContainer extends Component {
             dealerHand: hand, 
             gameStatus: gameStatus});
     }
+
 
     handleShuffle(){
         this.setState({ deck: this.state.deck.shuffle() });
@@ -105,7 +115,7 @@ export class BlackJackContainer extends Component {
                 <Button onClick={this.handleReset}>Reset game</Button>
                 <GameStatusDisplay gameStatus={this.state.gameStatus}></GameStatusDisplay>
                 <Button onClick={isPlaying ? this.handleHit : undefined}>Hit</Button>
-                <Button onClick={isPlaying ? this.handleStay : undefined}>Stand</Button>
+                <Button onClick={isPlaying ? this.handleStand : undefined}>Stand</Button>
                 <CardHolder cards={playerHand} score={this.calculateScore(playerHand)}/>
                 <CardHolder cards={dealerHand} score={this.calculateScore(dealerHand)}/>
             </BlackJackGame>
