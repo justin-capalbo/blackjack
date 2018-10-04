@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import { PropTypes } from 'prop-types';
 import { CardBase } from './CardBase';
+import { Card } from '../../types/Card';
 import styled from 'styled-components';
 
 const Holder = styled.div`
@@ -16,7 +16,12 @@ const Score = styled.h4`
     margin-right: 10px;
 `;
 
-export class CardHolder extends PureComponent {
+export interface CardHolderProps{
+    cards: Card[],
+    score: number
+}
+
+export class CardHolder extends PureComponent<CardHolderProps, {}> {
     render() {
         let cards = this.props.cards; 
         return (
@@ -27,14 +32,10 @@ export class CardHolder extends PureComponent {
                     <CardBase 
                         key={i} 
                         card={data} 
-                        index={i}/>)
+                        order={i}/>)
                 }
                 <Score>Score: {this.props.score}</Score>
             </Holder>
         );
     }
 };
-
-CardHolder.propTypes = {
-    cards: PropTypes.array.isRequired
-}
