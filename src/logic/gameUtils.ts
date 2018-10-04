@@ -1,6 +1,8 @@
 import { CARD_FACES, CARD_SUITS, CARD_LABELS } from '../constants/BlackjackCards';
+import { Card } from '../types/Card';
 
 export class Deck {
+    cards: Card[];
 
     constructor(shuffleDeck = true){
         this.cards = [];
@@ -18,11 +20,11 @@ export class Deck {
         }
     }
 
-    drawCard(){
-        return this.cards.shift(1);
+    drawCard(): Card{
+        return this.cards.shift();
     }
 
-    shuffle(){
+    shuffle(): Deck{
         const cards = this.cards;
         let shuffled = [];
         while (cards.length > 0){
@@ -34,15 +36,15 @@ export class Deck {
     }
 }
 
-export function buildDeck(){
+export function buildDeck(): Deck{
     return new Deck();
 }
 
-export function scoreHand(hand){
+export function scoreHand(hand: Card[]): number{
     let sum = 0, aces = 0;
     for (let i = 0; i < hand.length; i++){
        sum += hand[i].value; 
-       if (hand[i].Face == CARD_LABELS.CARD_ACE){
+       if (hand[i].face == CARD_LABELS.CARD_ACE){
            aces++;
        }
     }

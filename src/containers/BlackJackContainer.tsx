@@ -1,12 +1,13 @@
 import React from 'react';
 import { Component } from 'react';
 import styled from 'styled-components';
-import { GAME_STATUS } from '../constants/GameConstants';
 import { WelcomeBanner } from '../components/visual/WelcomeBanner';
 import { Button } from '../components/visual/Button';
 import { CardHolder } from '../components/card/CardHolder';
-import { scoreHand, buildDeck } from '../logic/gameUtils';
 import { GameStatusDisplay } from '../components/visual/GameStatusDisplay';
+import { Card } from '../types/Card';
+import { scoreHand, buildDeck, Deck } from '../logic/gameUtils';
+import { GAME_STATUS } from '../constants/GameConstants';
 
 const BlackJackGame = styled.div`
     max-width: 90%;
@@ -14,9 +15,16 @@ const BlackJackGame = styled.div`
     text-align: center;
 `;
 
-export class BlackJackContainer extends Component {
-    constructor(){
-        super();
+interface BlackJackState {
+    playerHand: Card[],
+    dealerHand: Card[],
+    gameStatus: string,
+    deck: Deck
+}
+
+export class BlackJackContainer extends Component<{}, BlackJackState>{
+    constructor(props){
+        super(props);
         this.handleHit = this.handleHit.bind(this);
         this.handleStand = this.handleStand.bind(this);
         this.handleShuffle = this.handleShuffle.bind(this);
