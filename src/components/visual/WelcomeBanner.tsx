@@ -8,14 +8,4 @@ const BannerText = styled.h1`
     -webkit-text-stroke: 1px black;
 `;
 
-interface TextProps{
-    bannerText: string
-}
-
-export class WelcomeBanner extends PureComponent<TextProps, {}>{
-    render(){
-        return (
-            <BannerText>{this.props.bannerText}</BannerText>
-        );
-    }
-}
+export const WelcomeBanner = ({ bannerText }: { bannerText: string } ) => <BannerText>{bannerText}</BannerText>

@@ -11,7 +11,7 @@ const TitleText = styled.div`
     font-weight: bold;
     margin 0 10px 0 10px;
 
-    ${(p:{flipped: boolean}) => p.flipped && css`
+    ${(p: { flipped: boolean } ) => p.flipped && css`
         transform: rotate(180deg);
         transform-origin: center;
         margin-top: 150px;
