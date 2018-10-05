@@ -4,4 +4,4 @@
 
 1. Run `npm install` to install dependencies
 2. Use `npm run dev` to run in development mode
-3. Browse to `http://localhost:7000`
+3. Browse to `http://localhost:1234`
