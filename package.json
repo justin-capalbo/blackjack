@@ -4,12 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production"
+    "dev": "parcel src/index.html --open",
+    "build": "parcel build src/index.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "4.20.2"
+    "@babel/core": "7.1.2",
+    "@babel/preset-env": "7.1.0",
+    "@babel/preset-react": "7.0.0",
+    "parcel-bundler": "1.10.1",
+    "react": "16.5.2",
+    "react-dom": "16.5.2"
+  },
+  "dependencies": {
+    "@types/react": "16.4.14",
+    "@types/react-dom": "16.0.8",
+    "emotion": "9.2.12",
+    "react-emotion": "9.2.12",
+    "typescript": "3.1.1"
   }
 }
