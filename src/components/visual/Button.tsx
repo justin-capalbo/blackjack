@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'react-emotion';
 
-export const Button = styled.button`
+export const Button = styled('button')`
     border: 2px solid black;
     border-radius: 3px;
     margin: 2px;

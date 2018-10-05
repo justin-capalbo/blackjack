@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import { GAME_STATUS } from '../../constants/GameConstants';
-import styled from 'styled-components';
+import styled from 'react-emotion';
 
-const GameStatusBounds = styled.div`
+const GameStatusBounds = styled('div')`
     margin-top: 15px;
 `;
 

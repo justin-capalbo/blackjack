@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import styled from 'styled-components';
+import styled from 'react-emotion';
 import { WelcomeBanner } from '../components/visual/WelcomeBanner';
 import { Button } from '../components/visual/Button';
 import { CardHolder } from '../components/card/CardHolder';
@@ -9,7 +9,7 @@ import { Card } from '../types/Card';
 import { scoreHand, buildDeck, Deck } from '../logic/gameUtils';
 import { GAME_STATUS } from '../constants/GameConstants';
 
-const BlackJackGame = styled.div`
+const BlackJackGame = styled('div')`
     max-width: 90%;
     margin: 0 auto;
     text-align: center;

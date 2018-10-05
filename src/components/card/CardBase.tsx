@@ -1,9 +1,9 @@
 import React, { PureComponent} from 'react';
 import { CardTitle } from './CardTitle';
-import styled from 'styled-components';
+import styled from 'react-emotion';
 import { Card } from '../../types/Card';
 
-const CardBounds = styled.div<{order: number}>`
+const CardBounds = styled('div')<{order: number}>`
     position: absolute;
     width: 190px;
     border: 2px solid black;

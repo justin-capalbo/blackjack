@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'react-emotion';
 
-const TitleText = styled.div<{flipped: boolean}>`
+const TitleText = styled('div')<{flipped: boolean}>`
     font-weight: bold;
     margin 0 10px 0 10px;
 
