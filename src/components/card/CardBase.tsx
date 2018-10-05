@@ -17,7 +17,7 @@ type Props = {
     order: number
 }
 
-export class CardBase extends PureComponent<Props, {}>{
+export class CardBase extends PureComponent<Props, {}> {
     render() {
         let card = this.props.card; 
         return (

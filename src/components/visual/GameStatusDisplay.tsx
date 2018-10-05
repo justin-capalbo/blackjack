@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { GAME_STATUS } from '../../constants/GameConstants';
+import { GameStatus } from '../../constants/GameConstants';
 import styled from 'react-emotion';
 
 const GameStatusBounds = styled('div')`
@@ -11,18 +11,18 @@ type Props  = {
 }; 
 
 export class GameStatusDisplay extends PureComponent<Props, {}> {
-    render(){
+    render() {
         const status = this.props.gameStatus;
         return (
             <GameStatusBounds>
                 {
-                    status === GAME_STATUS.PLAYING &&
+                    status === GameStatus.PLAYING &&
                         <span>Choose Hit or Stand</span>
-                    || status === GAME_STATUS.WIN &&
+                    || status === GameStatus.WIN &&
                         <span>You win!</span>
-                    || status === GAME_STATUS.LOSE &&
+                    || status === GameStatus.LOSE &&
                         <span>You Lose!</span>
-                    || status === GAME_STATUS.PUSH &&
+                    || status === GameStatus.PUSH &&
                         <span>Push!</span>
                 }
             </GameStatusBounds>

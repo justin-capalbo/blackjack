@@ -9,4 +9,8 @@ const BannerText = styled('h1')`
 `;
 
 //Another form of taking a single prop as opposed to `type Prop`
-export const WelcomeBanner = ({ bannerText }: { bannerText: string } ) => <BannerText>{bannerText}</BannerText>
+export const WelcomeBanner = ({ bannerText }: { bannerText: string } ) => (
+    <BannerText>
+        {bannerText}
+    </BannerText>
+);
