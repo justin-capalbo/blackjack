@@ -1,11 +1,11 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-const TitleText = styled.div`
+const TitleText = styled.div<{flipped: boolean}>`
     font-weight: bold;
     margin 0 10px 0 10px;
 
-    ${(p: { flipped: boolean } ) => p.flipped && css`
+    ${p => p.flipped && `
         transform: rotate(180deg);
         transform-origin: center;
         margin-top: 150px;

@@ -3,13 +3,13 @@ import { CardTitle } from './CardTitle';
 import styled from 'styled-components';
 import { Card } from '../../types/Card';
 
-const CardBounds = styled.div`
+const CardBounds = styled.div<{order: number}>`
     position: absolute;
     width: 190px;
     border: 2px solid black;
     background-color: white;
-    margin-top: ${(p:{order: number}) => 4 + p.order * 24}px;
-    margin-left: ${(p:{order: number}) => 4 + p.order * 6}px;
+    margin-top: ${p => 4 + p.order * 24}px;
+    margin-left: ${p => 4 + p.order * 6}px;
 `;
 
 type Props = {
