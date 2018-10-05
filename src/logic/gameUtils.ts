@@ -1,5 +1,5 @@
-import { CardSuit, CARD_VALUES, CardFace, CardFaceValue } from '../constants/BlackjackCards';
-import { Card } from '../types/Card';
+import { CardSuit, CardFace, CardFaceValue, CARD_VALUES } from '../constants';
+import { Card } from '../types';
 
 export class Deck {
     cards: Card[];

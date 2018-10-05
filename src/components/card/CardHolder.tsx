@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import { CardBase } from './CardBase';
-import { Card } from '../../types/Card';
+import { CardBase } from '.';
+import { Card } from '../../types';
 import styled from 'react-emotion';
 
 const Holder = styled('div')`

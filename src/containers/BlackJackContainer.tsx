@@ -1,13 +1,11 @@
 import React from 'react';
 import { Component } from 'react';
 import styled from 'react-emotion';
-import { WelcomeBanner } from '../components/visual/WelcomeBanner';
-import { Button } from '../components/visual/Button';
-import { CardHolder } from '../components/card/CardHolder';
-import { GameStatusDisplay } from '../components/visual/GameStatusDisplay';
-import { Card } from '../types/Card';
-import { scoreHand, buildDeck, Deck } from '../logic/gameUtils';
-import { GameStatus } from '../constants/GameConstants';
+import { WelcomeBanner, Button, GameStatusDisplay } from '../components/visual';
+import { CardHolder } from '../components/card';
+import { Card } from '../types';
+import { scoreHand, buildDeck, Deck } from '../logic';
+import { GameStatus } from '../constants';
 
 const BlackJackGame = styled('div')`
     max-width: 90%;

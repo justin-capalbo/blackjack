@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { GameStatus } from '../../constants/GameConstants';
+import { GameStatus } from '../../constants';
 import styled from 'react-emotion';
 
 const GameStatusBounds = styled('div')`
