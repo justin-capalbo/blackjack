@@ -1,4 +1,4 @@
-export interface Card {
+export type Card = {
     face: string,
     suit: string,
     value: number
