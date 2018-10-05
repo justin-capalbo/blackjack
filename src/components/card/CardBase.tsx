@@ -3,11 +3,6 @@ import { CardTitle } from './CardTitle';
 import styled from 'styled-components';
 import { Card } from '../../types/Card';
 
-interface CardBaseProps {
-    card: Card,
-    order: number
-}
-
 const CardBounds = styled.div`
     position: absolute;
     width: 190px;
@@ -17,7 +12,12 @@ const CardBounds = styled.div`
     margin-left: ${(p:{order: number}) => 4 + p.order * 6}px;
 `;
 
-export class CardBase extends PureComponent<CardBaseProps, {}>{
+type Props = {
+    card: Card,
+    order: number
+}
+
+export class CardBase extends PureComponent<Props, {}>{
     render() {
         let card = this.props.card; 
         return (

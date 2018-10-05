@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const Holder = styled.div`
     border: 1px dashed black;
     min-height: 325px;
-    max-width: 400px;
+    width: 400px;
     margin: 20px auto;
 `;
 
@@ -16,12 +16,12 @@ const Score = styled.h4`
     margin-right: 10px;
 `;
 
-export interface CardHolderProps{
+type Props = {
     cards: Card[],
     score: number
 }
 
-export class CardHolder extends PureComponent<CardHolderProps, {}> {
+export class CardHolder extends PureComponent<Props, {}> {
     render() {
         let cards = this.props.cards; 
         return (

@@ -6,9 +6,11 @@ const GameStatusBounds = styled.div`
     margin-top: 15px;
 `;
 
-export interface GameStatusProps { gameStatus: string; };
+type Props  = { 
+    gameStatus: string; 
+}; 
 
-export class GameStatusDisplay extends PureComponent<GameStatusProps, {}> {
+export class GameStatusDisplay extends PureComponent<Props, {}> {
     render(){
         const status = this.props.gameStatus;
         return (
