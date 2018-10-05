@@ -1,33 +1,43 @@
-export const CARD_SUITS = [ 'Spades', 'Clubs', 'Hearts', 'Diamonds' ];
+export enum CardSuit {
+    Spades = "Spades",
+    Clubs = "Clubs",
+    Hearts = "Hearts",
+    Diamonds = "Diamonds"
+} 
 
-export const CARD_LABELS = {
-    CARD_TWO: 'Two',
-    CARD_THREE: 'Three',
-    CARD_FOUR: 'Four',
-    CARD_FIVE: 'Five',
-    CARD_SIX: 'Six',
-    CARD_SEVEN: 'Seven',
-    CARD_EIGHT: 'Eight',
-    CARD_NINE: 'Nine',
-    CARD_TEN: 'Ten',
-    CARD_JACK: 'Jack',
-    CARD_QUEEN: 'Queen',
-    CARD_KING: 'King',
-    CARD_ACE: 'Ace'
+export enum CardFace {
+    Two = "Two",
+    Three = "Three",
+    Four = "Four",
+    Five = "Five",
+    Six = "Six",
+    Seven = "Seven",
+    Eight = "Eight",
+    Nine = "Nine",
+    Ten = "Ten",
+    Jack = "Jack",
+    Queen = "Queen",
+    King = "King",
+    Ace = "Ace"
 };
 
-export const CARD_FACES = [
-    { value: 2, face: CARD_LABELS.CARD_TWO },
-    { value: 3, face: CARD_LABELS.CARD_THREE },
-    { value: 4, face: CARD_LABELS.CARD_FOUR },
-    { value: 5, face: CARD_LABELS.CARD_FIVE },
-    { value: 6, face: CARD_LABELS.CARD_SIX },
-    { value: 7, face: CARD_LABELS.CARD_SEVEN },
-    { value: 8, face: CARD_LABELS.CARD_EIGHT },
-    { value: 9, face: CARD_LABELS.CARD_NINE },
-    { value: 10, face: CARD_LABELS.CARD_TEN },
-    { value: 10, face: CARD_LABELS.CARD_JACK },
-    { value: 10, face: CARD_LABELS.CARD_QUEEN },
-    { value: 10, face: CARD_LABELS.CARD_KING },
-    { value: 11, face: CARD_LABELS.CARD_ACE }
+export type CardFaceValue = {
+    value: number,
+    face: CardFace
+}
+
+export const CARD_VALUES: CardFaceValue[] = [
+    { value: 2, face: CardFace.Two },
+    { value: 3, face: CardFace.Three },
+    { value: 4, face: CardFace.Four },
+    { value: 5, face: CardFace.Five },
+    { value: 6, face: CardFace.Six },
+    { value: 7, face: CardFace.Seven },
+    { value: 8, face: CardFace.Eight },
+    { value: 9, face: CardFace.Nine },
+    { value: 10, face: CardFace.Ten },
+    { value: 10, face: CardFace.Jack },
+    { value: 10, face: CardFace.Queen },
+    { value: 10, face: CardFace.King },
+    { value: 11, face: CardFace.Ace }
 ]

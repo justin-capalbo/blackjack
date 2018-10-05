@@ -1,21 +1,23 @@
-import { CARD_FACES, CARD_SUITS, CARD_LABELS } from '../constants/BlackjackCards';
+import { CardSuit, CARD_VALUES, CardFace } from '../constants/BlackjackCards';
 import { Card } from '../types/Card';
 
 export class Deck {
     cards: Card[];
 
-    constructor(shuffleDeck = true){
+    constructor(shuffled = true){
         this.cards = [];
-        for (let i = 0; i < CARD_SUITS.length; i++){
-            for (let j = 0; j < CARD_FACES.length; j++){
-                this.cards.push({
-                    suit: CARD_SUITS[i],
-                    face: CARD_FACES[j].face,
-                    value: CARD_FACES[j].value,
-                });
+        for (let cardSuit in CardSuit){
+            for (let i = 0; i < CARD_VALUES.length; i++){
+                let data = CARD_VALUES[i];
+                let newCard: Card = {
+                    suit: cardSuit,
+                    face: data.face,
+                    value: data.value,
+                }
+                this.cards.push(newCard);
             }
         }
-        if (shuffleDeck) {
+        if (shuffled) {
             this.shuffle();
         }
     }
@@ -25,11 +27,10 @@ export class Deck {
     }
 
     shuffle(): Deck{
-        const cards = this.cards;
         let shuffled = [];
-        while (cards.length > 0){
-            let index = Math.random() * cards.length;
-            shuffled.push(cards.splice(index, 1)[0]);
+        while (this.cards.length > 0){
+            let index = Math.random() * this.cards.length;
+            shuffled.push(this.cards.splice(index, 1)[0]);
         }
         this.cards = shuffled;
         return this;
@@ -44,7 +45,7 @@ export function scoreHand(hand: Card[]): number{
     let sum = 0, aces = 0;
     for (let i = 0; i < hand.length; i++){
        sum += hand[i].value; 
-       if (hand[i].face == CARD_LABELS.CARD_ACE){
+       if (hand[i].face == CardFace.Ace){
            aces++;
        }
     }
