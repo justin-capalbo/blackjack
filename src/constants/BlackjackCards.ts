@@ -21,7 +21,7 @@ export enum CardFace {
     Ace = "Ace"
 };
 
-export type CardFaceValue = {
+export interface CardFaceValue {
     value: number,
     face: CardFace
 }
