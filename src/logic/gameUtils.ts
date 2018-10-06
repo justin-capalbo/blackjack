@@ -35,6 +35,10 @@ export class Deck {
         this.cards = shuffled;
         return this;
     }
+
+    peekTop(): Card {
+        return this.cards[0];
+    }
 }
 
 export function buildDeck(): Deck {
