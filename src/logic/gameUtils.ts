@@ -1,4 +1,4 @@
-import { CardSuit, CardFace, CardFaceValue, CARD_VALUES } from '../constants';
+import { CardSuit, CardFace, STANDARD_CARD_VALUES } from '../constants';
 import { Card } from '../types';
 
 export class Deck {
@@ -7,12 +7,10 @@ export class Deck {
     constructor(shuffled = true) {
         this.cards = [];
         for (let cardSuit in CardSuit) {
-            for (let i = 0; i < CARD_VALUES.length; i++) {
-                let data: CardFaceValue = CARD_VALUES[i];
+            for (let cardFace in CardFace) {
                 let newCard: Card = {
                     suit: cardSuit,
-                    face: data.face,
-                    value: data.value,
+                    face: cardFace
                 }
                 this.cards.push(newCard);
             }
@@ -45,14 +43,18 @@ export function buildDeck(): Deck {
     return new Deck();
 }
 
+export function blackjackValueOf(card: Card): number{
+    return STANDARD_CARD_VALUES[card.face];
+}
+
 export function scoreHand(hand: Card[]): number {
     let sum: number = 0, aces: number = 0;
-    for (let i = 0; i < hand.length; i++) {
-        sum += hand[i].value;
-        if (hand[i].face == CardFace.Ace) {
+    hand.forEach(card =>{
+        sum += blackjackValueOf(card);
+        if (card.face === CardFace.Ace) {
             aces++;
         }
-    }
+    });
 
     //Handle aces
     while (aces > 0 && sum > 21) {

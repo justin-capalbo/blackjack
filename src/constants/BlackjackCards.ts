@@ -21,23 +21,22 @@ export enum CardFace {
     Ace = "Ace"
 };
 
-export interface CardFaceValue {
-    value: number,
-    face: CardFace
-}
+export interface BlackJackCardValues {
+    [face: string]: number;
+};
 
-export const CARD_VALUES: CardFaceValue[] = [
-    { value: 2, face: CardFace.Two },
-    { value: 3, face: CardFace.Three },
-    { value: 4, face: CardFace.Four },
-    { value: 5, face: CardFace.Five },
-    { value: 6, face: CardFace.Six },
-    { value: 7, face: CardFace.Seven },
-    { value: 8, face: CardFace.Eight },
-    { value: 9, face: CardFace.Nine },
-    { value: 10, face: CardFace.Ten },
-    { value: 10, face: CardFace.Jack },
-    { value: 10, face: CardFace.Queen },
-    { value: 10, face: CardFace.King },
-    { value: 11, face: CardFace.Ace }
-]
+export const STANDARD_CARD_VALUES: BlackJackCardValues = {
+    Two: 2,
+    Three: 3,
+    Four: 4,
+    Five: 5,
+    Six: 6,
+    Seven: 7,
+    Eight: 8,
+    Nine: 9,
+    Ten: 10,  
+    Jack: 10, 
+    Queen: 10, 
+    King: 10, 
+    Ace: 11,
+};
