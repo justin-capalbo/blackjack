@@ -1,5 +1,5 @@
 import { Deck, buildDeck, scoreHand, blackjackValueOf } from '../logic';
-import { CardFace, CardSuit, STANDARD_CARD_VALUES } from '../constants/BlackjackCards';
+import { CardFace, CardSuit } from '../constants/BlackjackCards';
 import { Card } from '../types';
 
 describe('how a deck works', () => {
